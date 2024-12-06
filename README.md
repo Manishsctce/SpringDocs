@@ -1,3 +1,5 @@
+
+
 # SpringDocs
 Spring Notes
 
@@ -86,3 +88,33 @@ mvn deploy
 > To run on Jetty embedded server:
 mvn jetty:run
 
+In kafka monitoring what is difference between received bytes and sent bytes and retained bytes?
+
+1. Received Bytes
+Definition: The total amount of data (in bytes) that Kafka brokers receive from producers.
+Represents:
+Incoming data traffic from producer clients.
+Includes messages published to topics as well as metadata requests from producers.
+
+2. Sent Bytes
+Definition: The total amount of data (in bytes) that Kafka brokers send to consumers.
+Represents:
+Outgoing data traffic to consumer clients.
+Includes messages fetched by consumers, along with metadata and offset-related requests.
+Use Case:
+Measure the rate of data being consumed from the Kafka cluster.
+Helps identify consumer throughput and whether consumers are actively consuming data.
+
+3. Retained Bytes
+Definition: The total amount of data (in bytes) stored on Kafka brokers (on disk) for topics and partitions.
+Represents:
+Persistent data retained on disk due to Kafka’s retention policy.
+Includes data that hasn’t been consumed yet or has been retained even after consumption, depending on the retention settings.
+Use Case:
+Monitor how much disk space is being used by Kafka.
+Determine whether disk usage is within capacity or if partitions need to be rebalanced.
+Typical Scenario:
+High retained bytes means brokers are holding a large amount of data, which could be due to:
+A long retention policy.
+Consumers falling behind (leading to retained data).
+Low consumption rates or inactive consumer groups.
