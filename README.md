@@ -129,3 +129,8 @@ Records: Measure the volume of data in terms of the number of messages (or recor
 
 Focuses on the count of Kafka messages, irrespective of their size.
 Useful for understanding the message throughput.
+
+
+Received Records: The total number of messages (records) received by Kafka brokers from producer clients.
+
+Sent Records : The total number of messages (records) sent by Kafka brokers to consumer clients.
