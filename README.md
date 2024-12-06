@@ -134,3 +134,56 @@ Useful for understanding the message throughput.
 Received Records: The total number of messages (records) received by Kafka brokers from producer clients.
 
 Sent Records : The total number of messages (records) sent by Kafka brokers to consumer clients.
+
+
+{
+  "notificationId": "string", 
+  "timestamp": "ISO 8601 timestamp",
+  "sourceApplication": "string",
+  "eventType": "string",
+  "severity": "string",
+  "data": {
+    "subject": "string",
+    "body": "string",
+    "details": {
+      "key1": "value1",
+      "key2": "value2"
+    }
+  },
+  "metadata": {
+    "correlationId": "string",
+    "partitionKey": "string",
+    "additionalInfo": {
+      "key": "value"
+    }
+  }
+}
+
+
+Top-Level Fields
+
+notificationId (string): A unique identifier for the notification. Can be a UUID.
+timestamp (ISO 8601 timestamp): The time the notification was generated. Use formats like "2024-12-05T12:34:56Z".
+sourceApplication (string): The application or microservice that generated the notification. Example: "OrderService".
+eventType (string): A classification of the event that triggered the notification. Example: "OrderCreated", "UserRegistered".
+severity (string): Indicates the urgency or priority of the notification. Values can include:
+"INFO"
+"WARN"
+"ERROR"
+"CRITICAL"
+data (object):
+
+subject (string): A brief description of the notification. Example: "New Order Created".
+body (string): Detailed information about the notification. Example: "An order with ID 12345 has been created."
+details (object): A key-value map to store additional information specific to the event. Example:
+json
+Copy code
+{
+  "orderId": "12345",
+  "userId": "67890"
+}
+metadata (object):
+
+correlationId (string): A unique identifier to correlate this notification with related events or transactions.
+partitionKey (string): A key used for Kafka partitioning. Helps group related messages together. Example: "orderId".
+additionalInfo (object): A flexible map for including optional or auxiliary metadata.
