@@ -118,3 +118,14 @@ High retained bytes means brokers are holding a large amount of data, which coul
 A long retention policy.
 Consumers falling behind (leading to retained data).
 Low consumption rates or inactive consumer groups.
+
+
+Bytes vs Records
+Bytes: Measure the volume of data in terms of size (in bytes).
+
+Includes message payloads, metadata, headers, etc.
+Useful for understanding bandwidth and storage consumption.
+Records: Measure the volume of data in terms of the number of messages (or records).
+
+Focuses on the count of Kafka messages, irrespective of their size.
+Useful for understanding the message throughput.
