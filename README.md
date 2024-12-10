@@ -187,3 +187,49 @@ metadata (object):
 correlationId (string): A unique identifier to correlate this notification with related events or transactions.
 partitionKey (string): A key used for Kafka partitioning. Helps group related messages together. Example: "orderId".
 additionalInfo (object): A flexible map for including optional or auxiliary metadata.
+---------------------------------
+#!/bin/bash
+
+# Directory or files to process
+INPUT_FILES="path/to/files/*"  # Replace with your actual file path or directory
+
+# REST API endpoint
+API_URL="https://example.com/api/endpoint"  # Replace with your API endpoint
+
+# Initialize total to 0
+total=0
+
+# Process each file
+for file in $INPUT_FILES; do
+  if [[ -f "$file" ]]; then
+    # Extract numbers from lines containing the phrase
+    number=$(grep "The total request count is" "$file" | sed -n 's/.*The total request count is \([0-9]*\).*/\1/p')
+
+    # Add the extracted number to the total (if found)
+    if [[ ! -z "$number" ]]; then
+      total=$((total + number))
+    fi
+  fi
+done
+
+# Get the current date in ISO 8601 format
+current_date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+# Prepare the JSON payload
+json_payload=$(cat <<EOF
+{
+  "date": "$current_date",
+  "total_request_count": $total
+}
+EOF
+)
+
+# Send the JSON payload in a POST request to the API
+response=$(curl -s -X POST -H "Content-Type: application/json" -d "$json_payload" "$API_URL")
+
+# Print the response from the API
+echo "Response from API: $response"
+
+
+
+
