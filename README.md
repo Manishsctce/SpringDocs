@@ -230,6 +230,28 @@ response=$(curl -s -X POST -H "Content-Type: application/json" -d "$json_payload
 # Print the response from the API
 echo "Response from API: $response"
 
+-------------------------
+file_pattern="consumer_usage_"
+valid_numbers=("121" "221" "321" "421")
+api_url="https://your-api-endpoint.com"
+current_date=$(date +"%Y-%m-%d")
 
+# Initialize a counter for the total extracted numbers
+total_count=0
+
+# Find files matching the pattern and process them
+find . -name "${file_pattern}*" -mtime +20 -type f | while read -r file; do
+    # Extract the number part from the filename
+    base_name=$(basename "$file")
+    for number in "${valid_numbers[@]}"; do
+        if [[ $base_name == "${file_pattern}${number}"* ]]; then
+            # If the filename matches, search for the line in the file
+            extracted_number=$(grep -oP "The total request count is \d+ node : \K\d+" "$file")
+            if [[ -n $extracted_number ]]; then
+                total_count=$((total_count + extracted_number))
+            fi
+        fi
+    done
+done
 
 
