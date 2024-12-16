@@ -253,5 +253,113 @@ find . -name "${file_pattern}*" -mtime +20 -type f | while read -r file; do
         fi
     done
 done
+------------------------------------------
+import java.time.OffsetDateTime;
+import java.util.Map;
+
+public class CloudEvent {
+
+    // Required fields
+    private String specversion;
+    private String id;
+    private String source;
+    private String type;
+
+    // Optional fields
+    private String datacontenttype;
+    private String dataschema;
+    private String subject;
+    private OffsetDateTime time;
+    private Object data;
+
+    // Getters and Setters
+    public String getSpecversion() {
+        return specversion;
+    }
+
+    public void setSpecversion(String specversion) {
+        this.specversion = specversion;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDatacontenttype() {
+        return datacontenttype;
+    }
+
+    public void setDatacontenttype(String datacontenttype) {
+        this.datacontenttype = datacontenttype;
+    }
+
+    public String getDataschema() {
+        return dataschema;
+    }
+
+    public void setDataschema(String dataschema) {
+        this.dataschema = dataschema;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public OffsetDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(OffsetDateTime time) {
+        this.time = time;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    // Optional: toString for easier debugging
+    @Override
+    public String toString() {
+        return "CloudEvent{" +
+                "specversion='" + specversion + '\'' +
+                ", id='" + id + '\'' +
+                ", source='" + source + '\'' +
+                ", type='" + type + '\'' +
+                ", datacontenttype='" + datacontenttype + '\'' +
+                ", dataschema='" + dataschema + '\'' +
+                ", subject='" + subject + '\'' +
+                ", time=" + time +
+                ", data=" + data +
+                '}';
+    }
+}
 
 
