@@ -254,112 +254,59 @@ find . -name "${file_pattern}*" -mtime +20 -type f | while read -r file; do
     done
 done
 ------------------------------------------
-import java.time.OffsetDateTime;
-import java.util.Map;
+    private static void processYaml(Object data, String currentKey, String currentPath) {
+        if (data instanceof Map) {
+            // If the data is a Map, iterate over each entry
+            Map<String, Object> map = (Map<String, Object>) data;
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                String key = entry.getKey();
+                Object value = entry.getValue();
+                String newPath = currentPath.isEmpty() ? key : currentPath + "." + key;
 
-public class CloudEvent {
+                // Check for vault.config.* or runtime.vault.path.*
+                if (newPath.startsWith("vault.config.")) {
+                    addToNestedMap(vaultConfigNestedMap, "vault.config.", newPath, value);
+                } else if (newPath.startsWith("runtime.vault.path.")) {
+                    addToNestedMap(runtimeVaultPathNestedMap, "runtime.vault.path.", newPath, value);
+                }
 
-    // Required fields
-    private String specversion;
-    private String id;
-    private String source;
-    private String type;
-
-    // Optional fields
-    private String datacontenttype;
-    private String dataschema;
-    private String subject;
-    private OffsetDateTime time;
-    private Object data;
-
-    // Getters and Setters
-    public String getSpecversion() {
-        return specversion;
+                // Recursively process further
+                processYaml(value, key, newPath);
+            }
+        } else if (data instanceof List) {
+            // If the data is a List, process each item in the list
+            List<Object> list = (List<Object>) data;
+            for (int i = 0; i < list.size(); i++) {
+                String listPath = currentPath + "[" + i + "]";
+                processYaml(list.get(i), currentKey, listPath);
+            }
+        }
     }
 
-    public void setSpecversion(String specversion) {
-        this.specversion = specversion;
-    }
+    /**
+     * Adds a nested property to the map of maps based on the prefix.
+     *
+     * @param targetMap The target map to store the nested property.
+     * @param prefix    The prefix to strip from the path (e.g., "vault.config.").
+     * @param fullPath  The full hierarchical path of the property.
+     * @param value     The value of the property.
+     */
+    private static void addToNestedMap(Map<String, Map<String, Object>> targetMap, String prefix, String fullPath, Object value) {
+        // Remove the prefix (e.g., "vault.config.") to extract the remaining path
+        String remainingPath = fullPath.substring(prefix.length());
 
-    public String getId() {
-        return id;
-    }
+        // Extract the first part (e.g., "dev") and the sub-key (e.g., "javax")
+        int dotIndex = remainingPath.indexOf(".");
+        if (dotIndex == -1) return; // If no further structure, skip
 
-    public void setId(String id) {
-        this.id = id;
-    }
+        String topKey = remainingPath.substring(0, dotIndex); // e.g., "dev"
+        String subKey = remainingPath.substring(dotIndex + 1); // e.g., "javax"
 
-    public String getSource() {
-        return source;
-    }
+        // Get or create the nested map for the top-level key
+        Map<String, Object> nestedMap = targetMap.computeIfAbsent(topKey, k -> new HashMap<>());
 
-    public void setSource(String source) {
-        this.source = source;
+        // Add the sub-key and value to the nested map
+        nestedMap.put(subKey, value);
     }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getDatacontenttype() {
-        return datacontenttype;
-    }
-
-    public void setDatacontenttype(String datacontenttype) {
-        this.datacontenttype = datacontenttype;
-    }
-
-    public String getDataschema() {
-        return dataschema;
-    }
-
-    public void setDataschema(String dataschema) {
-        this.dataschema = dataschema;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public OffsetDateTime getTime() {
-        return time;
-    }
-
-    public void setTime(OffsetDateTime time) {
-        this.time = time;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
-
-    // Optional: toString for easier debugging
-    @Override
-    public String toString() {
-        return "CloudEvent{" +
-                "specversion='" + specversion + '\'' +
-                ", id='" + id + '\'' +
-                ", source='" + source + '\'' +
-                ", type='" + type + '\'' +
-                ", datacontenttype='" + datacontenttype + '\'' +
-                ", dataschema='" + dataschema + '\'' +
-                ", subject='" + subject + '\'' +
-                ", time=" + time +
-                ", data=" + data +
-                '}';
-    }
-}
 
 
