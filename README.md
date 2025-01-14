@@ -254,6 +254,13 @@ find . -name "${file_pattern}*" -mtime +20 -type f | while read -r file; do
     done
 done
 ------------------------------------------
+/**
+     * Recursively process YAML data of any structure.
+     *
+     * @param data       YAML data (can be Map, List, or primitive type).
+     * @param currentKey The current key being processed.
+     * @param currentPath The hierarchical path of the current key (for storing in maps).
+     */
     private static void processYaml(Object data, String currentKey, String currentPath) {
         if (data instanceof Map) {
             // If the data is a Map, iterate over each entry
