@@ -316,4 +316,8 @@ done
         nestedMap.put(subKey, value);
     }
 
+---------------------------------
+Vineet has been instrumental in the success of the Draft CE initiative, showcasing exceptional technical expertise and a collaborative mindset. He skillfully managed the Kafka topic procurement process, ensuring timely availability and seamless integration for critical components. Beyond procurement, Vineet actively assisted multiple teams in adopting Kafka, providing hands-on support and guidance tailored to their unique requirements. 
 
+His proactive involvement extended to addressing and resolving complex technical challenges, empowering teams to leverage Kafka efficiently and effectively. These efforts have significantly streamlined processes for multiple services, including the Tada Data Product and the Orchestrator platform.
+Vineet has played a pivotal role in driving the initiative's success and ensuring its long-term impact.
