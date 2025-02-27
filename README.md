@@ -357,3 +357,37 @@ Maintain or improve engineering satisfaction score (≥90%) related to productiv
 
 Document and track time savings and efficiency improvements across key projects.
 
+
+
+Objective Name: Culture, Learning, and Development
+
+Objective Description:
+Foster a culture of continuous learning and collaboration by promoting reskilling and upskilling initiatives, encouraging participation in Corporate Social Responsibility (CSR) activities, supporting guilds, hackathons, tech conferences, and driving knowledge sharing and code reuse. The goal is to enhance technical expertise, cross-team collaboration, and community engagement while empowering employees to grow and innovate.
+
+Key Focus Areas:
+
+Promote and track participation in upskilling/reskilling programs (technical and non-technical).
+
+Encourage and support involvement in CSR initiatives to contribute to social causes.
+
+Organize and facilitate internal and external guilds, hackathons, and tech conferences.
+
+Increase adoption of reusable components and best practices to improve efficiency.
+
+Create platforms for knowledge sharing and collaboration across teams.
+
+
+Outcome Metrics:
+
+Upskilling/Reskilling: Ensure 100% participation in at least one upskilling/reskilling initiative per employee annually.
+
+CSR: Achieve X% employee participation in CSR activities or community outreach programs.
+
+Guilds & Hackathons: Host or support at least 2 hackathons and 3 active guilds annually, with a participation rate of Y%.
+
+Tech Conferences: Support Z employees to present or attend external tech conferences.
+
+Reuse & Knowledge Sharing: Increase adoption of reusable components by X% and conduct 4 knowledge-sharing sessions per year.
+
+Engagement Metrics: Maintain an employee satisfaction score of ≥90% for learning and development initiatives.
+
