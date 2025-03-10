@@ -317,77 +317,8 @@ done
     }
 
 ---------------------------------
-Vineet has been instrumental in the success of the Draft CE initiative, showcasing exceptional technical expertise and a collaborative mindset. He skillfully managed the Kafka topic procurement process, ensuring timely availability and seamless integration for critical components. Beyond procurement, Vineet actively assisted multiple teams in adopting Kafka, providing hands-on support and guidance tailored to their unique requirements. 
-
-His proactive involvement extended to addressing and resolving complex technical challenges, empowering teams to leverage Kafka efficiently and effectively. These efforts have significantly streamlined processes for multiple services, including the Tada Data Product and the Orchestrator platform.
-Vineet has played a pivotal role in driving the initiative's success and ensuring its long-term impact.
 
 
 
 
-Objective Name: Engineering Productivity: Save 3% of FTE Time
-
-Objective Description:
-Enhance engineering productivity by automating repetitive tasks, improving code quality, and optimizing processes. This includes implementing and scaling tools and frameworks such as unit, integration, and automated testing, code coverage integration, CI/CD improvements, and other efficiency-driven initiatives. The goal is to reduce manual effort, minimize errors, and enable faster, more reliable software delivery while saving at least 3% of Full-Time Equivalent (FTE) time.
-
-Key Focus Areas:
-
-Automate manual processes through advanced testing frameworks (unit, integration, and automation tests).
-
-Improve and enforce code coverage standards across key repositories.
-
-Optimize CI/CD pipelines to reduce build and deployment times.
-
-Implement tooling for performance monitoring and automated alerting.
-
-Identify and eliminate bottlenecks in engineering workflows.
-
-
-Outcome Metrics:
-
-Achieve a 3% reduction in FTE time spent on manual tasks through automation and process optimization.
-
-Increase code coverage to at least X% across all critical codebases.
-
-Reduce CI/CD pipeline execution time by Y% while maintaining or improving stability.
-
-Implement at least Z new automation tools/processes to enhance productivity.
-
-Maintain or improve engineering satisfaction score (≥90%) related to productivity tools and processes.
-
-Document and track time savings and efficiency improvements across key projects.
-
-
-
-Objective Name: Culture, Learning, and Development
-
-Objective Description:
-Foster a culture of continuous learning and collaboration by promoting reskilling and upskilling initiatives, encouraging participation in Corporate Social Responsibility (CSR) activities, supporting guilds, hackathons, tech conferences, and driving knowledge sharing and code reuse. The goal is to enhance technical expertise, cross-team collaboration, and community engagement while empowering employees to grow and innovate.
-
-Key Focus Areas:
-
-Promote and track participation in upskilling/reskilling programs (technical and non-technical).
-
-Encourage and support involvement in CSR initiatives to contribute to social causes.
-
-Organize and facilitate internal and external guilds, hackathons, and tech conferences.
-
-Increase adoption of reusable components and best practices to improve efficiency.
-
-Create platforms for knowledge sharing and collaboration across teams.
-
-
-Outcome Metrics:
-
-Upskilling/Reskilling: Ensure 100% participation in at least one upskilling/reskilling initiative per employee annually.
-
-CSR: Achieve X% employee participation in CSR activities or community outreach programs.
-
-Guilds & Hackathons: Host or support at least 2 hackathons and 3 active guilds annually, with a participation rate of Y%.
-
-Tech Conferences: Support Z employees to present or attend external tech conferences.
-
-Reuse & Knowledge Sharing: Increase adoption of reusable components by X% and conduct 4 knowledge-sharing sessions per year.
-
-Engagement Metrics: Maintain an employee satisfaction score of ≥90% for learning and development initiatives.
 
