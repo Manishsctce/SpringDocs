@@ -315,7 +315,11 @@ done
         // Add the sub-key and value to the nested map
         nestedMap.put(subKey, value);
     }
-
+why containerization?
+Consistency Across Environments - it runs exactly the same in dev, test, staging, and production.
+Better Resource Utilization - Share the host OS, Use less memory & CPU, Run more efficiently
+Scalability and Flexibility - Scale services up/down based on demand
+Simplified Maintenance and Updates - Containers are usually based on immutable images.
 ---------------------------------
 
 
