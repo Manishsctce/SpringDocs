@@ -321,7 +321,99 @@ Better Resource Utilization - Share the host OS, Use less memory & CPU, Run more
 Scalability and Flexibility - Scale services up/down based on demand
 Simplified Maintenance and Updates - Containers are usually based on immutable images.
 ---------------------------------
+### **📌 Metrics (System & Business Health)**  
+1. **RED Metrics**  
+   - Do you track **Rate (requests/sec), Errors (4xx/5xx), and Duration (latency)** for all critical endpoints?  
+   - Are your metrics labeled with `service_name`, `endpoint`, and `status_code`?  
 
+2. **Resource Monitoring**  
+   - Are you measuring CPU, memory, disk, and network usage for your service?  
+   - Do you track garbage collection/thread pool stats (if applicable)?  
+
+3. **Business KPIs**  
+   - Are you exposing business-critical metrics (e.g., orders processed, payment failures)?  
+   - Do you have SLOs defined (e.g., "99.9% of `/checkout` requests complete in <500ms")?  
+
+4. **Dashboards & Alerting**  
+   - Can you show a real-time dashboard for your service’s health?  
+   - Are your alerts based on SLOs (not just static thresholds)?  
+
+---
+
+### **📌 Logs (Structured & Actionable)**  
+5. **Log Formatting**  
+   - Are your logs in **structured JSON format** (not plain text)?  
+   - Do they include `trace_id` and `request_id` for correlation?  
+
+6. **Log Levels & Retention**  
+   - Are you using `ERROR`/`WARN`/`INFO` appropriately?  
+   - Are logs older than 30 days archived (not just deleted)?  
+
+7. **Sensitive Data**  
+   - Are passwords, API keys, and PII fields **automatically redacted**?  
+   - Do you have a log sampling strategy to avoid storage overload?  
+
+---
+
+### **📌 Distributed Tracing (End-to-End Visibility)**  
+8. **Trace Propagation**  
+   - Does your service propagate `trace_id` across HTTP, gRPC, and async calls (Kafka/SQS)?  
+   - Are database queries and external API calls captured as spans?  
+
+9. **Sampling Strategy**  
+   - Are you sampling **100% of errors** and **10% of successful requests**?  
+   - Can you show a trace for a failed request from start to finish?  
+
+10. **Tool Integration**  
+   - Are your traces linked to logs and metrics (e.g., Jaeger + Prometheus)?  
+
+---
+
+### **📌 Alerting & On-Call Readiness**  
+11. **Alert Quality**  
+   - Are your alerts **actionable** (not just "CPU high")?  
+   - Do you have **runbooks** for every alert (e.g., "If latency spikes, check DB locks")?  
+
+12. **Incident Response**  
+   - Can you demonstrate how you’d debug a production issue at 3 AM?  
+   - Do you have escalation policies (e.g., Slack → PagerDuty after 15 mins)?  
+
+---
+
+### **📌 Profiling (Optional but Critical for Performance)**  
+13. **Continuous Profiling**  
+   - Do you have CPU/memory flame graphs for production?  
+   - Can you correlate slow requests with code-level bottlenecks?  
+
+---
+
+### **📌 Synthetic & RUM (For Customer-Facing Apps)**  
+14. **Proactive Checks**  
+   - Do you have synthetic API tests running from multiple regions?  
+   - Are you monitoring real-user page load times and JS errors?  
+
+---
+
+### **📌 Chaos Engineering (For Resilient Systems)**  
+15. **Failure Testing**  
+   - Have you run chaos experiments (e.g., killing pods, injecting latency)?  
+   - Do you have auto-remediation for known failure modes?  
+
+---
+
+### **🚀 Final Verification Questions**  
+- **"If your service fails right now, how quickly can you diagnose the root cause?"**  
+- **"Can you prove your observability setup works using a real incident example?"**  
+- **"What’s one observability gap you’re currently working on?"**  
+
+---
+
+### **🎯 How to Use This Checklist**  
+1. **In Sprint Planning**: "Do we have metrics/logs/traces for the new feature?"  
+2. **Post-Incident**: "Why wasn’t this failure visible in our alerts/logs?"  
+3. **Pre-Launch Review**: "Show me your SLO dashboards and runbooks."  
+
+By asking these questions, you enforce **observability as a requirement—not an afterthought**. 🔍
 
 
 
