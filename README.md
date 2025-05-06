@@ -3,6 +3,10 @@
 # SpringDocs
 Spring Notes
 
+kubectl get pods --show-labels
+kubectl get pod <pod-name> -o jsonpath="{.metadata.labels}"
+
+
 ## What is the difference between the @ComponentScan and @EnableAutoConfiguration annotations in Spring Boot?
 
 @EnableAutoConfiguration annotation 
