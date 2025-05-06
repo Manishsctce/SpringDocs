@@ -417,4 +417,5 @@ By asking these questions, you enforce **observability as a requirement—not an
 
 
 
+kubectl get pods -l app=my-app -o name | xargs -I {} kubectl logs {} | grep "your-search-string"
 
